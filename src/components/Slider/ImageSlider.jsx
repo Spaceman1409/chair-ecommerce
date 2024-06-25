@@ -23,7 +23,15 @@ const ImageSlider = () => {
             original: images?.wooden_images?.slider_images?.slider_6,
         },
     ];
-    return <ImageGallery items={images_data} autoPlay={true} />;
+    return (
+        <ImageGallery
+            items={images_data}
+            autoPlay={true}
+            lazyLoad={true}
+            showIndex={true}
+            additionalClass="z-[-1]"
+        />
+    );
 };
 
 export default ImageSlider;

@@ -68,3 +68,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.modal-open {
+    opacity: 1;
+}
+
+.modal-close {
+    opacity: 0;
+}

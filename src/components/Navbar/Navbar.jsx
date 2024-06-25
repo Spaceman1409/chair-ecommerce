@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { images } from "../../assets/index";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+import { images } from "../../assets/index";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
+import SignInForm from "../Sign_in/SignInForm";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [signInModal, setSignInModal] = useState(false);
+
+    const toggleModal = () => {
+        setSignInModal(!signInModal);
+    };
 
     const Links = [
         {
@@ -71,12 +78,24 @@ const Navbar = () => {
                             </li>
                         ))}
                         <div className="flex md:gap-0 md:ml-0 ml-8 gap-5">
-                            <Button>Sign In</Button>
-                            <Button>Sign Up</Button>
+                            <Button className="md:ml-8" onClick={toggleModal}>
+                                Sign In
+                            </Button>
+                            <Button className="md:ml-8">Sign Up</Button>
                         </div>
                     </ul>
                 </div>
             </div>
+            {signInModal && (
+                <Modal
+                    children={<SignInForm />}
+                    title="Sign In"
+                    show={signInModal}
+                    hide={toggleModal}
+                    height="h-[55%]"
+                    width="w-[30%]"
+                />
+            )}
         </>
     );
 };
