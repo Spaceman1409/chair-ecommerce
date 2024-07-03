@@ -60,6 +60,22 @@ code {
     font-family: "Montserrat Alternates", sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -67,6 +83,16 @@ body {
     font-family: "Montserrat Alternates", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: -webkit-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.03) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.03) 50%,
+        rgba(0, 0, 0, 0.03) 75%,
+        transparent 75%,
+        transparent
+    );
 }
 
 .modal-open {
@@ -75,4 +101,24 @@ body {
 
 .modal-close {
     opacity: 0;
+}
+
+@layer components {
+    .anim-underline {
+        @apply relative;
+    }
+
+    .anim-underline::after {
+        @apply absolute content-[""] w-full h-1 left-0 bottom-[-4px] rounded-full bg-blue-rgba;
+    }
+}
+
+@layer components {
+    .nav-anim-underline {
+        @apply relative;
+    }
+
+    .nav-anim-underline::after {
+        @apply absolute content-[""] w-full h-1 left-0 bottom-[-4px] bg-blue-rgba scale-x-0 hover:scale-x-100 origin-bottom-right hover:origin-bottom-left transition-transform duration-300 ease-in-out;
+    }
 }

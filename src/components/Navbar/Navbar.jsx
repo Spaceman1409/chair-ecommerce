@@ -40,7 +40,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="shadow-md w-full sticky top-0 left-0">
+            <div className="shadow-md w-full sticky top-0 left-0 z-[999]">
                 <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                     <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-800">
                         <span className="text-3xl text-indigo-600 mr-1 pt-2">
@@ -67,7 +67,7 @@ const Navbar = () => {
                         {Links.map((link) => (
                             <li
                                 key={link.id}
-                                className="ml-8 lg:text-xl md:text-sm md:my-0 my-7"
+                                className="ml-8 lg:text-xl md:text-sm md:my-0 my-7 nav-anim-underline"
                             >
                                 <Link
                                     className="text-gray-800 hover:text-gray-400 duration-500"

@@ -24,13 +24,17 @@ const ImageSlider = () => {
         },
     ];
     return (
-        <ImageGallery
-            items={images_data}
-            autoPlay={true}
-            lazyLoad={true}
-            showIndex={true}
-            additionalClass="z-[-1]"
-        />
+        <>
+            <div className="mb-6">
+                <ImageGallery
+                    items={images_data}
+                    autoPlay={true}
+                    lazyLoad={true}
+                    showIndex={true}
+                    additionalClass="bg-white"
+                />
+            </div>
+        </>
     );
 };
 
